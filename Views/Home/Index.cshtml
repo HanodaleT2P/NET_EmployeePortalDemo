@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Landing Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<section class="to-indigo-600 text-white py-20"
+         style="background: linear-gradient(to right, #6a11cb, #2575fc);">
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div aria-live="polite" aria-atomic="true" class="position-relative">
+            <div class="toast-container position-fixed top-5 end-0 p-3" style="z-index: 1080;">
+                <div class="toast align-items-center text-white bg-success border-0 show" id="successToast" role="alert">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            @TempData["SuccessMessage"]
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            setTimeout(function () {
+                var toastEl = document.getElementById('successToast');
+                if (toastEl) {
+                    var toast = bootstrap.Toast.getOrCreateInstance(toastEl);
+                    toast.hide();
+                }
+            }, 3000); // 3 seconds
+        </script>
+    }
+
+  <div class="container mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to the Employee Portal</h1>
+        <p class="text-lg md:text-xl mb-8">Manage Employees, Departments, and Assignments easily</p>
+        <a href="/Employee/Index"
+           class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100">
+            Get Started
+        </a>
+    </div>
+</section>

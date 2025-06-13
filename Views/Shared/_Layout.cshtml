@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/EmployeePortalDemo.styles.css" asp-append-version="true" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        html, body {
+            height: 100%;
+        }
+       
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header -->
+   <header>
+    <nav class="bg-white shadow-md border-b">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Left: Brand -->
+            <div>
+                <a href="/Home/Index" class="text-xl font-semibold text-gray-800 hover:text-blue-600">
+                    EmployeePortalDemo
+                </a>
+            </div>
+
+            <!-- Right: Navigation Links -->
+            <div class="space-x-6">
+                <a href="/Home/Index" class="text-gray-700 hover:text-blue-600">Home</a>
+                <a href="/Employee/Index" class="text-gray-700 hover:text-blue-600">Employee</a>
+                <a href="/Department/Index" class="text-gray-700 hover:text-blue-600">Department</a>
+                <a href="/Login/Logout" class="text-red-600 font-semibold hover:underline">Logout</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <!-- Main Content -->
+   <body class="flex flex-col min-h-screen">
+   
+    <main role="main" class="container flex-grow pb-3">
+        @RenderBody()
+    </main>
+</body>
+
+    <!-- Footer -->
+    <footer class="border-t text-muted py-3 bg-gray-100">
+        <div class="container text-center">
+            &copy; 2025 - Hanodale - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,92 @@
+﻿@model IEnumerable<EmployeePortalDemo.Models.DepartmentViewModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-2xl font-bold text-gray-800 mb-6">Department List</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div aria-live="polite" aria-atomic="true" class="position-relative">
+        <div class="toast-container position-fixed top-5 end-0 p-3" style="z-index: 1080;">
+            <div class="toast align-items-center text-white bg-success border-0 show" id="successToast" role="alert">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        @TempData["SuccessMessage"]
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(function () {
+            var toastEl = document.getElementById('successToast');
+            if (toastEl) {
+                var toast = bootstrap.Toast.getOrCreateInstance(toastEl);
+                toast.hide();
+            }
+        }, 3000); // 3 seconds
+    </script>
+}
+
+
+<div class="overflow-x-auto bg-white shadow-md rounded-lg">
+    <table class="min-w-full table-auto text-sm text-left text-gray-700">
+        <thead class="bg-gray-100 text-gray-700 uppercase text-xs">
+            <tr>
+                <th class="px-4 py-3">ID</th>
+                <th class="px-4 py-3">Department Name</th>
+               
+                <th class="px-4 py-3 text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+            @foreach (var dept in Model)
+            {
+                <tr class="hover:bg-gray-50">
+                    <td class="px-4 py-2">@dept.Department.DepartmentId</td>
+                    <td class="px-4 py-2">@dept.Department.Name</td>
+                   
+                    <td class="px-4 py-2 text-center space-x-2">
+                        <a asp-action="Edit"
+                           asp-route-id="@dept.Department.DepartmentId"
+                           class="inline-block px-3 py-1 bg-yellow-400 hover:bg-yellow-500 text-white rounded text-sm font-medium">
+                            ✎ Edit
+                        </a>
+                        
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Hidden Delete Form -->
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const deleteButtons = document.querySelectorAll(".delete-btn");
+            const deleteForm = document.getElementById("deleteForm");
+            const deleteInput = document.getElementById("deleteDepartmentId");
+            const confirmDeleteBtn = document.getElementById("confirmDeleteBtn");
+
+            let selectedId = null;
+
+            deleteButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    selectedId = this.getAttribute("data-id");
+                    deleteInput.value = selectedId;
+                });
+            });
+
+            confirmDeleteBtn.addEventListener("click", function () {
+                if (selectedId) {
+                    deleteForm.submit();
+                }
+            });
+        });
+    </script>
+}
