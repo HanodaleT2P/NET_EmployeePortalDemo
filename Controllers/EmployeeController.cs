@@ -1,12 +1,15 @@
 ﻿using EmployeePortal.Models;
 using EmployeePortalDemo.Interfaces;
 using EmployeePortalDemo.Models;
+using EmployeePortalDemo.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace EmployeePortalDemo.Controllers
 {
+    [Authorize]
     public class EmployeeController : Controller
     {
         private readonly IEmployeeEFService _repo;
@@ -15,7 +18,7 @@ namespace EmployeePortalDemo.Controllers
         {
             _repo = repo;
         }
-
+      
         public async Task<IActionResult> Index()
         {
             var employees = await _repo.GetAllAsync();
@@ -25,7 +28,7 @@ namespace EmployeePortalDemo.Controllers
         public async Task<IActionResult> Create()
         {
             var departments = await _repo.GetDepartmentsAsync();
-            var model = new EmployeeEFCreateViewModel
+            var model = new EmployeeListViewModel
             {
                 Employee = new Employee
                 {
@@ -43,7 +46,7 @@ namespace EmployeePortalDemo.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(EmployeeEFCreateViewModel model)
+        public async Task<IActionResult> Create(EmployeeListViewModel model)
         {
             if (model.Employee.DepartmentId == 0)
             {
@@ -77,7 +80,7 @@ namespace EmployeePortalDemo.Controllers
                 return NotFound();
 
             var departments = await _repo.GetDepartmentsAsync();
-            var model = new EmployeeEFCreateViewModel
+            var model = new EmployeeListViewModel
             {
                 Employee = employee,
                 Department = departments.Select(d => new SelectListItem
@@ -92,7 +95,7 @@ namespace EmployeePortalDemo.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, EmployeeEFCreateViewModel model)
+        public async Task<IActionResult> Edit(int id, EmployeeListViewModel model)
         {
             if (id != model.Employee.EmployeeId)
                 return NotFound();

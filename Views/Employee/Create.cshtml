@@ -1,5 +1,5 @@
-﻿@using EmployeePortalDemo.Models
-@model EmployeeEFCreateViewModel
+﻿
+@model EmployeePortalDemo.ViewModels.EmployeeListViewModel
 
 <div class="container mt-5">
     <div class="card shadow-lg border-0 rounded-4">
@@ -7,7 +7,7 @@
             <h4 id="formTitle" class="mb-0 py-2 fw-bold">@((Model.Employee.EmployeeId > 0) ? "Edit Employee" : "Create Employee")</h4>
         </div>
         <div class="card-body p-4">
-            <form id="employeeForm" asp-action="@((Model.Employee.EmployeeId > 0) ? "Edit" : "Create")" asp-controller="EmployeePortalEF" method="post">
+            <form id="employeeForm" asp-action="@((Model.Employee.EmployeeId > 0) ? "Edit" : "Create")" asp-controller="Employee" method="post">
                 <input type="hidden" asp-for="Employee.EmployeeId" />
 
                 <div class="row g-3">

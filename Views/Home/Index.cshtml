@@ -1,45 +1,62 @@
 ﻿@{
-    ViewData["Title"] = "Landing Page";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Welcome - Employee Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
 
+        .wrapper {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
 
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
 
-<section class="to-indigo-600 text-white py-20"
-         style="background: linear-gradient(to right, #6a11cb, #2575fc);">
+        footer {
+            background-color: #f8f9fa;
+        }
 
-    @if (TempData["SuccessMessage"] != null)
-    {
-        <div aria-live="polite" aria-atomic="true" class="position-relative">
-            <div class="toast-container position-fixed top-5 end-0 p-3" style="z-index: 1080;">
-                <div class="toast align-items-center text-white bg-success border-0 show" id="successToast" role="alert">
-                    <div class="d-flex">
-                        <div class="toast-body">
-                            @TempData["SuccessMessage"]
-                        </div>
-                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-                    </div>
-                </div>
-            </div>
+        .btn-get-started {
+            margin-top: 20px;
+            padding: 10px 25px;
+            font-size: 16px;
+            border-radius: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="content">
+            <h1><strong>Welcome to the Employee Portal</strong></h1>
+            <p>Manage Employees, Departments, and Assignments easily</p>
+            <a href="/Login/Index" class="btn btn-light btn-get-started">Get Started</a>
         </div>
 
-        <script>
-            setTimeout(function () {
-                var toastEl = document.getElementById('successToast');
-                if (toastEl) {
-                    var toast = bootstrap.Toast.getOrCreateInstance(toastEl);
-                    toast.hide();
-                }
-            }, 3000); // 3 seconds
-        </script>
-    }
-
-  <div class="container mx-auto text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to the Employee Portal</h1>
-        <p class="text-lg md:text-xl mb-8">Manage Employees, Departments, and Assignments easily</p>
-        <a href="/Employee/Index"
-           class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100">
-            Get Started
-        </a>
+        <footer class="text-center py-3">
+            &copy; 2025 - Hanodale - <a href="/privacy">Privacy</a>
+        </footer>
     </div>
-</section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

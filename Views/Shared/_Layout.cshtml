@@ -1,64 +1,157 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Layout = null;
+    var userName = User?.Identity?.IsAuthenticated == true ? User.Identity.Name : null;
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/EmployeePortalDemo.styles.css" asp-append-version="true" />
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
-    <style>
-        html, body {
-            height: 100%;
-        }
-       
-    </style>
-</head>
-<body class="flex flex-col min-h-screen">
-
-    <!-- Header -->
-   <header>
-    <nav class="bg-white shadow-md border-b">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <!-- Left: Brand -->
-            <div>
-                <a href="/Home/Index" class="text-xl font-semibold text-gray-800 hover:text-blue-600">
-                    EmployeePortalDemo
-                </a>
-            </div>
-
-            <!-- Right: Navigation Links -->
-            <div class="space-x-6">
-                <a href="/Home/Index" class="text-gray-700 hover:text-blue-600">Home</a>
-                <a href="/Employee/Index" class="text-gray-700 hover:text-blue-600">Employee</a>
-                <a href="/Department/Index" class="text-gray-700 hover:text-blue-600">Department</a>
-                <a href="/Login/Logout" class="text-red-600 font-semibold hover:underline">Logout</a>
-            </div>
-        </div>
-    </nav>
-</header>
-
-    <!-- Main Content -->
-   <body class="flex flex-col min-h-screen">
-   
-    <main role="main" class="container flex-grow pb-3">
-        @RenderBody()
-    </main>
-</body>
-
-    <!-- Footer -->
-    <footer class="border-t text-muted py-3 bg-gray-100">
-        <div class="container text-center">
-            &copy; 2025 - Hanodale - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+        }
+
+        #sidebar.collapsed {
+            width: 64px;
+        }
+
+            #sidebar.collapsed .sidebar-label,
+            #sidebar.collapsed .submenu {
+                display: none !important;
+            }
+    </style>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('collapsed');
+        }
+
+        function toggleSubmenu(id) {
+            const submenu = document.getElementById(id);
+            submenu.classList.toggle('hidden');
+        }
+    </script>
+</head>
+
+<body class="flex bg-gray-100 min-h-screen">
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="w-64 bg-white shadow-lg hidden md:flex flex-col transition-all duration-300 ease-in-out">
+        <div class="p-6 border-b">
+            <span class="font-bold text-blue-700 text-lg sidebar-label">Employee Portal</span>
+        </div>
+
+        <nav class="p-4 flex-grow space-y-3 text-gray-700">
+
+            <!-- Dashboard -->
+            <a href="/Dashboard/Index" class="flex items-center space-x-2 hover:text-blue-600 transition">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M13 5v6h6m-6 0v6m0-6H5m0 0l7 7" />
+                </svg>
+                <span class="sidebar-label">Dashboard</span>
+            </a>
+
+            <!-- Employees -->
+            <div>
+                <button onclick="toggleSubmenu('employeeSubmenu')" class="flex items-center justify-between w-full hover:text-blue-600 transition">
+                    <span class="flex items-center space-x-2">
+                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A3.5 3.5 0 018 15h8a3.5 3.5 0 012.879 5.804M15 10a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        <span class="sidebar-label">Employees</span>
+                    </span>
+                    <span class="sidebar-label">⯆</span>
+                </button>
+                <div id="employeeSubmenu" class="ml-6 mt-2 space-y-2 hidden submenu">
+                    <a href="/Employee/Index" class="block hover:text-blue-500">List</a>
+                </div>
+            </div>
+
+            <!-- Departments -->
+            <div>
+                <button onclick="toggleSubmenu('departmentSubmenu')" class="flex items-center justify-between w-full hover:text-blue-600 transition">
+                    <span class="flex items-center space-x-2">
+                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+                        </svg>
+                        <span class="sidebar-label">Departments</span>
+                    </span>
+                    <span class="sidebar-label">⯆</span>
+                </button>
+                <div id="departmentSubmenu" class="ml-6 mt-2 space-y-2 hidden submenu">
+                    <a href="/Department/Index" class="block hover:text-blue-500">List</a>
+                </div>
+            </div>
+
+            <!-- Logout -->
+            <a href="/Login/Logout" class="flex items-center space-x-2 text-red-600 hover:underline mt-6">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1m0-10V5" />
+                </svg>
+                <span class="sidebar-label">Logout</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex flex-col flex-grow w-full">
+
+        <!-- Top Bar -->
+        <!-- Top Bar -->
+        <header class="bg-white shadow-md flex justify-between items-center px-4 py-3 border-b">
+            <div class="flex items-center space-x-4">
+                <!-- Sidebar toggle button -->
+                <button onclick="toggleSidebar()" class="text-xl text-gray-700" title="Toggle Sidebar">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+
+                <!-- Username greeting -->
+                <div class="text-gray-800 font-semibold text-sm">
+                    @if (!string.IsNullOrEmpty(userName))
+                    {
+                        <span>Hello, @userName!!</span>
+                    }
+                    else
+                    {
+                        <span>Welcome</span>
+                    }
+                </div>
+            </div>
+
+            <!-- Logout link on right -->
+            <a href="/Login/Logout" class="text-red-600 font-semibold hover:underline hidden md:block">Logout</a>
+        </header>
+
+        <!-- Body -->
+        <main class="p-6 bg-gray-100 flex-grow">
+            @RenderBody()
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-200 text-sm text-gray-600 text-center py-4 border-t">
+            &copy; 2025 - Hanodale - <a href="/Home/Privacy" class="text-blue-600 hover:underline">Privacy</a>
+        </footer>
+    </div>
+
 </body>
 </html>

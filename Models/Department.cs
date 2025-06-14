@@ -12,6 +12,8 @@ public  class Department
     public string Name { get; set; } = null!;
 
     public int LocationId { get; set; }
+
+    [ValidateNever]
     public List<Employee> Employees { get; set; }
 
 
@@ -20,10 +22,4 @@ public  class Department
 }
 
 
-public class DepartmentViewModel
-{
-    public Department Department { get; set; }
- 
 
-
-}

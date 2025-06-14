@@ -5286,11 +5286,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Hanodale\\Training\\EmployeePortalDemo\\EmployeePortalDemo.csproj",
+      "projectUniqueName": "D:\\Hanodale\\Training\\NET_EmployeePortalDemo\\EmployeePortalDemo.csproj",
       "projectName": "EmployeePortalDemo",
-      "projectPath": "D:\\Hanodale\\Training\\EmployeePortalDemo\\EmployeePortalDemo.csproj",
+      "projectPath": "D:\\Hanodale\\Training\\NET_EmployeePortalDemo\\EmployeePortalDemo.csproj",
       "packagesPath": "C:\\Users\\dhiviya.ag\\.nuget\\packages\\",
-      "outputPath": "D:\\Hanodale\\Training\\EmployeePortalDemo\\obj\\",
+      "outputPath": "D:\\Hanodale\\Training\\NET_EmployeePortalDemo\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "i1Yzo2uwWhY=",
+  "dgSpecHash": "n6p6okT8/Uc=",
   "success": true,
-  "projectFilePath": "D:\\Hanodale\\Training\\EmployeePortalDemo\\EmployeePortalDemo.csproj",
+  "projectFilePath": "D:\\Hanodale\\Training\\NET_EmployeePortalDemo\\EmployeePortalDemo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dhiviya.ag\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\dhiviya.ag\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

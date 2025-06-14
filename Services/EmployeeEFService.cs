@@ -2,7 +2,7 @@
 using EmployeePortal.Models;
 using EmployeePortalDemo.Interfaces;
 using EmployeePortalDemo.Models;
-
+using EmployeePortalDemo.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
 
@@ -18,17 +18,17 @@ namespace EmployeePortalDemo.Services
             _context = context;
         }
 
-        public async Task<List<EmployeeEFViewModel>> GetAllAsync()
+        public async Task<List<EmployeeFormViewModel>> GetAllAsync()
         {
             return await _context.Employees
                 .Include(e => e.Department)
-                .Select(e => new EmployeeEFViewModel
+                .Select(e => new EmployeeFormViewModel
                 {
                     EmployeeId = e.EmployeeId,
                     Name = e.Name,
                     Email = e.Email,
                     HireDate = e.HireDate,
-                    DepartmentName = e.Department.Name
+                    Department = e.Department.Name
                 })
                 .ToListAsync();
         }

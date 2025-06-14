@@ -1,0 +1,51 @@
+﻿<style>
+    @@keyframes slide-down {
+        0% {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-slide-down {
+        animation: slide-down 0.3s ease-out;
+    }
+</style>
+
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div id="successAlert" class="fixed top-5 right-5 bg-green-100 border border-green-400 text-green-800 px-6 py-4 rounded shadow-md z-50 animate-slide-down">
+        <div class="flex items-center justify-between">
+            <span>@TempData["SuccessMessage"]</span>
+            <button type="button" class="ml-4 text-green-800 hover:text-green-900 font-bold" onclick="document.getElementById('successAlert').remove();">
+                &times;
+            </button>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(function () {
+            const alert = document.getElementById('successAlert');
+            if (alert) alert.remove();
+        }, 3000); // auto-remove after 3 seconds
+    </script>
+}
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Employee Card -->
+    <div class="bg-blue-600 text-white rounded-lg shadow-lg p-6">
+        <h5 class="text-lg font-semibold mb-2">Employees</h5>
+        <p class="text-4xl font-bold">@ViewBag.EmployeeCount</p>
+    </div>
+
+    <!-- Department Card -->
+    <div class="bg-green-600 text-white rounded-lg shadow-lg p-6">
+        <h5 class="text-lg font-semibold mb-2">Departments</h5>
+        <p class="text-4xl font-bold">@ViewBag.DepartmentCount</p>
+    </div>
+</div>
