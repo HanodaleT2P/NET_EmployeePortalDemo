@@ -27,6 +27,7 @@ namespace EmployeePortalDemo.Controllers
 
         public async Task<IActionResult> Create()
         {
+
             var departments = await _repo.GetDepartmentsAsync();
             var model = new EmployeeListViewModel
             {
@@ -46,13 +47,31 @@ namespace EmployeePortalDemo.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(EmployeeListViewModel model)
+        public async Task<IActionResult> Create(EmployeeListViewModel model, IFormFile PhotoFile)
         {
+            if (PhotoFile != null && PhotoFile.Length > 0)
+            {
+                var uploads = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads/employees");
+                Directory.CreateDirectory(uploads);
+
+                var fileName = Guid.NewGuid().ToString() + Path.GetExtension(PhotoFile.FileName);
+                var filePath = Path.Combine(uploads, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await PhotoFile.CopyToAsync(stream);
+                }
+
+                model.Employee.PhotoPath = "/uploads/employees/" + fileName;
+            }
             if (model.Employee.DepartmentId == 0)
             {
                 ModelState.AddModelError("Employee.DepartmentId", "Please select a department.");
             }
-
+            if (PhotoFile == null || PhotoFile.Length == 0)
+            {
+                ModelState.AddModelError("PhotoFile", "Please upload a photo.");
+            }
             // Check email duplicate
             if (_repo.IsEmailDuplicate(model.Employee.Email))
             {
@@ -95,7 +114,7 @@ namespace EmployeePortalDemo.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, EmployeeListViewModel model)
+        public async Task<IActionResult> Edit(int id, EmployeeListViewModel model, IFormFile PhotoFile)
         {
             if (id != model.Employee.EmployeeId)
                 return NotFound();
@@ -108,6 +127,23 @@ namespace EmployeePortalDemo.Controllers
                     Text = d.Department.Name
                 }).ToList();
                 return View("Create", model);
+            }
+            // Handle photo upload
+            if (PhotoFile != null && PhotoFile.Length > 0)
+            {
+                var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads/employees");
+                Directory.CreateDirectory(uploadsFolder); // Ensure folder exists
+
+                var fileName = Guid.NewGuid().ToString() + Path.GetExtension(PhotoFile.FileName);
+                var filePath = Path.Combine(uploadsFolder, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await PhotoFile.CopyToAsync(stream);
+                }
+
+                // Set the relative path to be saved in the DB
+                model.Employee.PhotoPath = "/uploads/employees/" + fileName;
             }
 
             await _repo.UpdateAsync(model.Employee);
@@ -134,6 +170,17 @@ namespace EmployeePortalDemo.Controllers
         public async Task<IActionResult> Details(int id)
         {
             var emp = await _repo.GetByIdAsync(id);
+            var departments = await _repo.GetDepartmentsAsync();
+      
+         
+            var deptName = departments
+          .FirstOrDefault(d => d.Department.DepartmentId == emp.DepartmentId)?.Department?.Name;
+
+            // Initialize emp.Department if it's null
+            if (emp.Department == null)
+                emp.Department = new Department();
+
+            emp.Department.Name = deptName;
             if (emp == null)
                 return NotFound();
 
