@@ -19,8 +19,10 @@ public class Employee
     public int DepartmentId { get; set; }
     [ValidateNever]
 
-    public Department Department { get; set; } 
+    public Department Department { get; set; }
 
-   
+    public string? PhotoPath { get; set; }
+
+
 }
 

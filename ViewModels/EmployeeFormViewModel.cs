@@ -26,6 +26,8 @@ namespace EmployeePortalDemo.ViewModels
 
         [ValidateNever]
         public List<SelectListItem> Departments { get; set; } = new();
+
+        public string? PhotoPath { get; set; }
     }
 
 }

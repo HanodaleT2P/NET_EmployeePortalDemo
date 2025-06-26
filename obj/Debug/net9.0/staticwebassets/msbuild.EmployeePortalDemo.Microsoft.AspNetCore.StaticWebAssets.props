@@ -1152,5 +1152,95 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lib\jquery\LICENSE.txt'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\employees\67b383b1-9e10-4a8b-bc14-eb437b5b19f0.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>EmployeePortalDemo</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/EmployeePortalDemo</BasePath>
+      <RelativePath>uploads/employees/67b383b1-9e10-4a8b-bc14-eb437b5b19f0.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>oizfcug7ok</Fingerprint>
+      <Integrity>kOWqCGF0jFo7IdMmF5EWBtgIWwkC/4QwvQPTexy+7PI=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\employees\67b383b1-9e10-4a8b-bc14-eb437b5b19f0.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\employees\69baa42a-e543-4a19-9b6a-c523ca2525e0.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>EmployeePortalDemo</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/EmployeePortalDemo</BasePath>
+      <RelativePath>uploads/employees/69baa42a-e543-4a19-9b6a-c523ca2525e0.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>6m6fhlnpfo</Fingerprint>
+      <Integrity>wls0URxSqlCTyK5e/s0aHpANoQZUvLVPhsW+Kb7KtFM=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\employees\69baa42a-e543-4a19-9b6a-c523ca2525e0.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\employees\a8b0ef4f-25da-4da0-8894-68aa81aaafd2.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>EmployeePortalDemo</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/EmployeePortalDemo</BasePath>
+      <RelativePath>uploads/employees/a8b0ef4f-25da-4da0-8894-68aa81aaafd2.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>oizfcug7ok</Fingerprint>
+      <Integrity>kOWqCGF0jFo7IdMmF5EWBtgIWwkC/4QwvQPTexy+7PI=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\employees\a8b0ef4f-25da-4da0-8894-68aa81aaafd2.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\employees\d837d615-2b66-40e6-8960-6e74371fd439.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>EmployeePortalDemo</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/EmployeePortalDemo</BasePath>
+      <RelativePath>uploads/employees/d837d615-2b66-40e6-8960-6e74371fd439.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>oizfcug7ok</Fingerprint>
+      <Integrity>kOWqCGF0jFo7IdMmF5EWBtgIWwkC/4QwvQPTexy+7PI=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\employees\d837d615-2b66-40e6-8960-6e74371fd439.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\employees\f2a2af12-21bc-4af9-b5e0-c3e408089123.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>EmployeePortalDemo</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/EmployeePortalDemo</BasePath>
+      <RelativePath>uploads/employees/f2a2af12-21bc-4af9-b5e0-c3e408089123.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>oizfcug7ok</Fingerprint>
+      <Integrity>kOWqCGF0jFo7IdMmF5EWBtgIWwkC/4QwvQPTexy+7PI=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\employees\f2a2af12-21bc-4af9-b5e0-c3e408089123.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
   </ItemGroup>
 </Project>

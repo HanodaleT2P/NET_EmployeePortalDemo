@@ -257,6 +257,26 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.map"
     },
     {
+      "Id": "D:\\Hanodale\\Training\\NET_EmployeePortalDemo\\wwwroot\\uploads\\employees\\67b383b1-9e10-4a8b-bc14-eb437b5b19f0.jpg",
+      "PackagePath": "staticwebassets\\uploads\\employees\\67b383b1-9e10-4a8b-bc14-eb437b5b19f0.jpg"
+    },
+    {
+      "Id": "D:\\Hanodale\\Training\\NET_EmployeePortalDemo\\wwwroot\\uploads\\employees\\69baa42a-e543-4a19-9b6a-c523ca2525e0.jpg",
+      "PackagePath": "staticwebassets\\uploads\\employees\\69baa42a-e543-4a19-9b6a-c523ca2525e0.jpg"
+    },
+    {
+      "Id": "D:\\Hanodale\\Training\\NET_EmployeePortalDemo\\wwwroot\\uploads\\employees\\a8b0ef4f-25da-4da0-8894-68aa81aaafd2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\employees\\a8b0ef4f-25da-4da0-8894-68aa81aaafd2.jpg"
+    },
+    {
+      "Id": "D:\\Hanodale\\Training\\NET_EmployeePortalDemo\\wwwroot\\uploads\\employees\\d837d615-2b66-40e6-8960-6e74371fd439.jpg",
+      "PackagePath": "staticwebassets\\uploads\\employees\\d837d615-2b66-40e6-8960-6e74371fd439.jpg"
+    },
+    {
+      "Id": "D:\\Hanodale\\Training\\NET_EmployeePortalDemo\\wwwroot\\uploads\\employees\\f2a2af12-21bc-4af9-b5e0-c3e408089123.jpg",
+      "PackagePath": "staticwebassets\\uploads\\employees\\f2a2af12-21bc-4af9-b5e0-c3e408089123.jpg"
+    },
+    {
       "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.EmployeePortalDemo.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
